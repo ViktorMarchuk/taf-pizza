@@ -9,34 +9,38 @@ import java.time.Duration;
 public class PizzaManiaPageFood{
     private WebDriver driver;
     public final String URL = "https://pizzamania.by/";
-    public final String EXPECTED_PIZZA = "Маргарита*";
-    public final String EXPECTED_DRINK = "AURA";
-    private String xPathClickButtonPizza = "//a[@href='/#pizza']";
-    private String xPathClickButtonToBasket = "//article[@id='item-37']/div[2]/div/a";
-    private String xPathClickButtonBasket = "//a[@id='basket']";
+    public final String EXPECTED_PIZZA_MARGHERITA = "Маргарита*";
+    public final String EXPECTED_BEVERAGE_AURA = "AURA";
+    private String xPathLinkPizza = "//a[@href='/#pizza']";
+    private String xPathButtonToBasket = "//article[@id=\"item-37\"]/div[2]/div/a";
+    private String xPathButtonBasket = "//a[@id='basket']";
     private String xPathChosenPizza = "//div[@data-id='37']/div[2]/div/h5";
     private String xPathChooseDrinkButton = "//a[@href='/#beverages']";
-    private String xPathClickButtonToBasketWaterAura = "//a[@data-id='95']";
+    private String xPathButtonToBasketWaterAura = "//article[@id='item-95']/div[2]/div/a";
     private String xPathChosenDrink = "//div[@data-id='95']/div[2]/div/h5";
 
     public PizzaManiaPageFood(WebDriver driver){
         this.driver = driver;
     }
 
+    public void openUrl(String url){
+        driver.navigate().to(url);
+    }
+
     public void clickButtonPizza(){
-        By buttonPizza = By.xpath(xPathClickButtonPizza);
+        By buttonPizza = By.xpath(xPathLinkPizza);
         WebElement webElementButtonPizza = driver.findElement(buttonPizza);
         webElementButtonPizza.click();
     }
 
     public void clickButtonToBasket(){
-        By buttonToBasket = By.xpath(xPathClickButtonToBasket);
+        By buttonToBasket = By.xpath(xPathButtonToBasket);
         WebElement webElementButtonToBasket = driver.findElement(buttonToBasket);
         webElementButtonToBasket.click();
     }
 
     public void clickButtonBasket(){
-        By buttonBasket = By.xpath(xPathClickButtonBasket);
+        By buttonBasket = By.xpath(xPathButtonBasket);
         WebElement webElementButtonBasket = driver.findElement(buttonBasket);
         webElementButtonBasket.click();
 
@@ -55,7 +59,7 @@ public class PizzaManiaPageFood{
     }
 
     public void clickChosenDrink(){
-        By clickButtonToBasketWaterAura = By.xpath(xPathClickButtonToBasketWaterAura);
+        By clickButtonToBasketWaterAura = By.xpath(xPathButtonToBasketWaterAura);
         WebElement webElementButtonToBasketWaterAura = driver.findElement(clickButtonToBasketWaterAura);
         webElementButtonToBasketWaterAura.click();
     }
@@ -67,10 +71,10 @@ public class PizzaManiaPageFood{
     }
 
     public void actionsOnPageWithPizzaAndDrink(){
-        driver.navigate().to(URL);
+        openUrl(URL);
+        // driver.navigate().to(URL);
         clickButtonPizza();
         clickButtonToBasket();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         clickButtonBasket();
         addDrinkButton();
         clickChosenDrink();
@@ -79,10 +83,10 @@ public class PizzaManiaPageFood{
     }
 
     public void actionOnPageWithPizza(){
-        driver.navigate().to(URL);
+        openUrl(URL);
+        //  driver.navigate().to(URL);
         clickButtonPizza();
         clickButtonToBasket();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         clickButtonBasket();
     }
 }
