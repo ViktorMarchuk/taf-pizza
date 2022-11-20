@@ -38,7 +38,9 @@ public class PizzaManiaPageDrink{
     public String getTextDrink(){
         By chosenDrink = By.xpath(xPathChosenDrink);
         WebElement webElementChosenDrink = driver.findElement(chosenDrink);
-        return webElementChosenDrink.getText();
+        String str = webElementChosenDrink.getText();
+        System.out.println("PizzaManiaPageDrink.getTextDrink() = " + str);
+        return str;
     }
 
     public void openUrlClickDesertsAddJuiceAppleClickBasket(){

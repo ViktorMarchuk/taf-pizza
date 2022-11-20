@@ -12,12 +12,12 @@ public class PizzaManiaPageFood{
     public final String PIZZA_MARGHERITA = "Маргарита*";
     public final String BEVERAGE_WATER_AURA = "AURA";
     private String xPathLinkPizza = "//a[@href='/#pizza']";
-    private String xPathClickButtonToBasket = "//article[@id='item-37']/div[2]/div/a"; //TODO не обнаружил веб элемента на странице
+    private String xPathClickButtonToBasket = "//article[@id='item-37']/div[2]/div/a";
     private String xPathButtonBasket = "//a[@id='basket']";
-    private String xPathChosenPizza = "//div[@data-id='37']/div[2]/div/h5"; //TODO не обнаружил веб элемента на странице
-    private String xPathChooseDrinkButton = "//a[@href='/#beverages']"; //TODO не обнаружил веб элемента на странице
+    private String xPathChosenPizza = "//div[@data-id='37']/div[2]/div/h5";
+    private String xPathChooseDrinkButton = "//a[@href='/#beverages']";
     private String xPathButtonAddBeverageAuraToBasket = "//a[@data-id='95']";
-    private String xPathChosenDrink = "//div[@data-id='95']/div[2]/div/h5"; //TODO не обнаружил веб элемента на странице
+    private String xPathChosenDrink = "//div[@data-id='95']/div[2]/div/h5";
 
     public PizzaManiaPageFood(WebDriver driver){
         this.driver = driver;
@@ -39,13 +39,14 @@ public class PizzaManiaPageFood{
         By buttonBasket = By.xpath(xPathButtonBasket);
         WebElement webElementButtonBasket = driver.findElement(buttonBasket);
         webElementButtonBasket.click();
-
     }
 
     public String getTextPizza(){
         By chosenPizza = By.xpath(xPathChosenPizza);
         WebElement webElementChosenPizza = driver.findElement(chosenPizza);
-        return webElementChosenPizza.getText();
+        String str = webElementChosenPizza.getText();
+        System.out.println("PizzaManiaPageFood.getTextPizza() = " + str);
+        return str;
     }
 
     public void addDrinkButton(){
@@ -63,14 +64,15 @@ public class PizzaManiaPageFood{
     public String getTextDrink(){
         By chosenDrink = By.xpath(xPathChosenDrink);
         WebElement webElementChosenDrink = driver.findElement(chosenDrink);
-        return webElementChosenDrink.getText();
+        String str = webElementChosenDrink.getText();
+        System.out.println("PizzaManiaPageFood.getTextDrink() = " + str);
+        return str;
     }
 
     public void actionsOnPageWithPizzaAndDrink(){
         driver.navigate().to(URL);
         clickButtonPizza();
         clickButtonToBasket();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         clickButtonBasket();
         addDrinkButton();
         clickChosenDrink();
@@ -82,7 +84,6 @@ public class PizzaManiaPageFood{
         driver.navigate().to(URL);
         clickButtonPizza();
         clickButtonToBasket();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         clickButtonBasket();
     }
 }
