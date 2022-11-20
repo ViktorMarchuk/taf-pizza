@@ -14,7 +14,7 @@ public class TestPizzaManiaPageFood{
         PizzaManiaPageFood page = new PizzaManiaPageFood(driver);
         page.actionOnPageWithPizza();
 
-        Assert.assertEquals(page.EXPECTED_PIZZA, page.getTextPizza());
+        Assert.assertEquals(page.PIZZA_MARGHERITA, page.getTextPizza());
         driver.quit();
     }
 
@@ -25,8 +25,8 @@ public class TestPizzaManiaPageFood{
         PizzaManiaPageFood page = new PizzaManiaPageFood(driver);
         page.actionsOnPageWithPizzaAndDrink();
 
-        Assert.assertEquals(page.EXPECTED_PIZZA, page.getTextPizza());
-        Assert.assertEquals(page.EXPECTED_DRINK, page.getTextDrink());
+        Assert.assertEquals(page.PIZZA_MARGHERITA, page.getTextPizza());
+        Assert.assertEquals(page.BEVERAGE_WATER_AURA, page.getTextDrink());
         driver.quit();
     }
 }

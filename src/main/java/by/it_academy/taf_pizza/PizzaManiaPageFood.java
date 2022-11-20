@@ -9,22 +9,22 @@ import java.time.Duration;
 public class PizzaManiaPageFood{
     private WebDriver driver;
     public final String URL = "https://pizzamania.by/";
-    public final String EXPECTED_PIZZA = "Маргарита*";
-    public final String EXPECTED_DRINK = "AURA";
-    private String xPathClickButtonPizza = "//a[@href='/#pizza']";
-    private String xPathClickButtonToBasket = "//article[@id='item-37']/div[2]/div/a";
-    private String xPathClickButtonBasket = "//a[@id='basket']";
-    private String xPathChosenPizza = "//div[@data-id='37']/div[2]/div/h5";
-    private String xPathChooseDrinkButton = "//a[@href='/#beverages']";
-    private String xPathClickButtonToBasketWaterAura = "//a[@data-id='95']";
-    private String xPathChosenDrink = "//div[@data-id='95']/div[2]/div/h5";
+    public final String PIZZA_MARGHERITA = "Маргарита*";
+    public final String BEVERAGE_WATER_AURA = "AURA";
+    private String xPathLinkPizza = "//a[@href='/#pizza']";
+    private String xPathClickButtonToBasket = "//article[@id='item-37']/div[2]/div/a"; //TODO не обнаружил веб элемента на странице
+    private String xPathButtonBasket = "//a[@id='basket']";
+    private String xPathChosenPizza = "//div[@data-id='37']/div[2]/div/h5"; //TODO не обнаружил веб элемента на странице
+    private String xPathChooseDrinkButton = "//a[@href='/#beverages']"; //TODO не обнаружил веб элемента на странице
+    private String xPathButtonAddBeverageAuraToBasket = "//a[@data-id='95']";
+    private String xPathChosenDrink = "//div[@data-id='95']/div[2]/div/h5"; //TODO не обнаружил веб элемента на странице
 
     public PizzaManiaPageFood(WebDriver driver){
         this.driver = driver;
     }
 
     public void clickButtonPizza(){
-        By buttonPizza = By.xpath(xPathClickButtonPizza);
+        By buttonPizza = By.xpath(xPathLinkPizza);
         WebElement webElementButtonPizza = driver.findElement(buttonPizza);
         webElementButtonPizza.click();
     }
@@ -36,7 +36,7 @@ public class PizzaManiaPageFood{
     }
 
     public void clickButtonBasket(){
-        By buttonBasket = By.xpath(xPathClickButtonBasket);
+        By buttonBasket = By.xpath(xPathButtonBasket);
         WebElement webElementButtonBasket = driver.findElement(buttonBasket);
         webElementButtonBasket.click();
 
@@ -55,7 +55,7 @@ public class PizzaManiaPageFood{
     }
 
     public void clickChosenDrink(){
-        By clickButtonToBasketWaterAura = By.xpath(xPathClickButtonToBasketWaterAura);
+        By clickButtonToBasketWaterAura = By.xpath(xPathButtonAddBeverageAuraToBasket);
         WebElement webElementButtonToBasketWaterAura = driver.findElement(clickButtonToBasketWaterAura);
         webElementButtonToBasketWaterAura.click();
     }
