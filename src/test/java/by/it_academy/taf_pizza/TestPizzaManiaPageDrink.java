@@ -7,16 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class TestPizzaManiaPageDrink{
+public class TestPizzaManiaPageDrink extends BaseTest{
     @Test
     public void testPageDrinkActions(){
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        PizzaManiaPageDrink pageDrink = new PizzaManiaPageDrink(driver);
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        PizzaManiaPageDrink pageDrink = new PizzaManiaPageDrink(webDriver);
         pageDrink.openUrlClickDesertsAddJuiceAppleClickBasket();
 
         Assert.assertEquals(pageDrink.EXPECTED_BEVERAGE_JUICE_YA_APPLE, pageDrink.getTextDrink());
-        driver.quit();
     }
 }
