@@ -8,14 +8,14 @@ public class PizzaManiaStep extends PizzaManiaPage{
         super(driver);
     }
 
-    public void actionOnPageWithPizza(){
+    public void orderPizza(){
         openPage(URL);
         scrollPage();
         clickButtonToBasket();
         clickButtonBasket();
     }
 
-    public void actionsOnPageWithPizzaAndDrink(){
+    public void orderPizzaAndDrink(){
         openPage(URL);
         scrollPage();
         clickButtonToBasket();

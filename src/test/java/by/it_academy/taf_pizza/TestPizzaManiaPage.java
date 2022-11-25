@@ -8,17 +8,17 @@ public class TestPizzaManiaPage extends BaseTest{
     @Test
     public void testActionsWithPizza(){
         PizzaManiaStep step=new PizzaManiaStep(webDriver);
-        step.actionOnPageWithPizza();
+        step.orderPizza();
 
-        Assert.assertEquals(step.EXPECTED_PIZZA_MARGHERITA, step.getTextPizza());
+        Assert.assertEquals(step.PIZZA_MARGHERITA, step.getTextPizza());
     }
 
     @Test
     public void testActionsWithPizzaAndDrink(){
         PizzaManiaStep step=new PizzaManiaStep(webDriver);
-        step.actionsOnPageWithPizzaAndDrink();
+        step.orderPizzaAndDrink();
 
-        Assert.assertEquals(step.EXPECTED_PIZZA_MARGHERITA,step.getTextPizza());
-        Assert.assertEquals(step.EXPECTED_BEVERAGE_AURA, step.getTextDrink());
+        Assert.assertEquals(step.PIZZA_MARGHERITA,step.getTextPizza());
+        Assert.assertEquals(step.BEVERAGE_AURA, step.getTextDrink());
     }
 }

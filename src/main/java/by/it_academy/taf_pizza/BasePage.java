@@ -4,9 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class BasePage{
+    WebDriver driver;
     public final String URL = "https://pizzamania.by/";
 
-    public static void clickButton(WebElement webElement){
+    public  void clickWebElement(WebElement webElement){
         webElement.click();
     }
 }

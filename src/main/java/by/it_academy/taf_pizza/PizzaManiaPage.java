@@ -8,9 +8,9 @@ import org.openqa.selenium.interactions.WheelInput;
 
 
 public class PizzaManiaPage extends BasePage {
-    private WebDriver driver;
-    public final String EXPECTED_PIZZA_MARGHERITA = "Маргарита*";
-    public final String EXPECTED_BEVERAGE_AURA = "AURA";
+    //private WebDriver driver;
+    public final String PIZZA_MARGHERITA = "Маргарита*";
+    public final String BEVERAGE_AURA = "AURA";
     private String xPathButtonToBasket = "//article[@id='item-37']/div[2]/div/a";
     private String xPathButtonBasket = "//a[@id='basket']";
     private String xPathChosenPizza = "//div[@data-id='37']/div[2]/div/h5";
@@ -36,13 +36,13 @@ public class PizzaManiaPage extends BasePage {
     public void clickButtonToBasket(){
         By buttonToBasket = By.xpath(xPathButtonToBasket);
         WebElement webElementButtonToBasket = driver.findElement(buttonToBasket);
-        BasePage.clickButton(webElementButtonToBasket);
+        clickWebElement(webElementButtonToBasket);
     }
 
     public void clickButtonBasket(){
         By buttonBasket = By.xpath(xPathButtonBasket);
         WebElement webElementButtonBasket = driver.findElement(buttonBasket);
-        BasePage.clickButton(webElementButtonBasket);
+        clickWebElement(webElementButtonBasket);
 
     }
 
@@ -55,13 +55,13 @@ public class PizzaManiaPage extends BasePage {
     public void addDrinkButton(){
         By chosenDrinkButton = By.xpath(xPathChooseDrinkButton);
         WebElement webElementDrinkButton = driver.findElement(chosenDrinkButton);
-        BasePage.clickButton(webElementDrinkButton);
+        clickWebElement(webElementDrinkButton);
     }
 
     public void clickChosenDrink(){
         By clickButtonToBasketWaterAura = By.xpath(xPathButtonToBasketWaterAura);
         WebElement webElementButtonToBasketWaterAura = driver.findElement(clickButtonToBasketWaterAura);
-        BasePage.clickButton(webElementButtonToBasketWaterAura);
+        clickWebElement(webElementButtonToBasketWaterAura);
     }
 
     public String getTextDrink(){
